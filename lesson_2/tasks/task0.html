@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Задача №0</title>
+</head>
+
+<body>
+	<h1>Задача №0</h1>
+	<p>
+		Обчислити значення виразів
+	</p>
+	<img src="../img/screenshot_1.png" alt="">
+	<script>
+		//1.Вводимо необхідні дані
+		let a = parseFloat(prompt('Введіть a', '0'))
+		let b = parseFloat(prompt('Введіть b', '0'))
+		let c = parseFloat(prompt('Введіть c', '0'))
+
+		//2.Знаходимо результат
+		let s1 = a + 12 + b
+		let s2 = Math.sqrt((a + b) / (a * 2))
+		let s3 = Math.cbrt((a + b) * c)
+		let s4 = Math.sin(a / (-b))
+
+		//3.Виводимо результати
+		document.write(`
+		<br>
+			<mark>s1 = ${s1}</mark> <br>
+			<mark>s2 = ${s2}</mark> <br>
+			<mark>s3 = ${s3}</mark> <br>
+			<mark>s4 = ${s4}</mark> <br>
+		`)
+	</script>
+</body>
+
+</html>
