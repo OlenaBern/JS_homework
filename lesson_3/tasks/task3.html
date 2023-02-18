@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача №3</title>
+  </head>
+
+  <body>
+    <h1>Задача №3</h1>
+    <p>
+      Випадковим чином генерується число від 1 до 5. Спробуйте вгадати число за
+      2 спроби.
+    </p>
+
+    <script>
+      //1. Вводимо необхідні дані
+      const randomNumber = Math.floor(Math.random() * 5) + 1
+      const attempt1 = parseInt(
+        prompt("Введіть число від 1 до 5 (спроба1)", "0")
+      )
+
+      //2.Перевіряємо умову і виводимо результат
+      if (randomNumber === attempt1)
+        document.write(`
+            <mark>Вітаємо ви вгадали число з першої спроби.</mark> <br>
+            <mark>Згенероване число - ${randomNumber}.</mark> <br>
+            <mark>Ви ввели - ${attempt1}.</mark>
+            `)
+      else {
+        const attempt2 = parseInt(
+          prompt("Введіть число від 1 до 5 (спроба2)", "0")
+        )
+        if (randomNumber === attempt2)
+          document.write(`
+            <mark>Вітаємо ви вгадали число з другої спроби.</mark> <br>
+            <mark>Згенероване число - ${randomNumber}.</mark> <br>
+            <mark>Ви ввели - ${attempt2}.</mark>
+            `)
+        else
+          document.write(`
+            <mark>Ви не вгадали число.</mark> <br>
+            <mark>Згенероване число - ${randomNumber}.</mark> <br>
+            <mark>Ви ввели - ${attempt1} та ${attempt2}.</mark>
+            `)
+      }
+    </script>
+  </body>
+</html>
