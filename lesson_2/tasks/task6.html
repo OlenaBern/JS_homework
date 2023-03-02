@@ -1,41 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача №6</title>
+  </head>
 
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Задача №6</title>
-</head>
-
-<body>
-	<h1>Задача №6</h1>
-	<p>
-		З клавіатури вводяться вартість товару та кількість одиниць 3 товарів. Обчислити вартість кожного товару
-		окремо та загальну вартість. Вивести чек (як у супермаркеті) використовуючи елементи розмітки.
-	</p>
-	<script>
-		//1. Вводимо необхідні дані
-		let price1 = parseFloat(prompt('Введіть вартість товару', '0')).toFixed(2)
-		let quantity1 = parseInt(prompt('Введіть кількість товару', '0'))
-		let price2 = parseFloat(prompt('Введіть вартість товару', '0')).toFixed(2)
-		let quantity2 = parseInt(prompt('Введіть кількість товару', '0'))
-		let price3 = parseFloat(prompt('Введіть вартість товару', '0')).toFixed(2)
-		let quantity3 = parseInt(prompt('Введіть кількість товару', '0'))
-		//2.Знаходимо результат
-		let sum1 = (price1 * quantity1).toFixed(2)
-		let sum2 = (price2 * quantity2).toFixed(2)
-		let sum3 = (price3 * quantity3).toFixed(2)
-		let totalPrice = (parseFloat(sum1) + parseFloat(sum2) + parseFloat(sum3)).toFixed(2)
-		//3.Виводимо результати
-		document.write(`
+  <body>
+    <h1>Задача №6</h1>
+    <p>
+      З клавіатури вводяться вартість товару та кількість одиниць 3 товарів.
+      Обчислити вартість кожного товару окремо та загальну вартість. Вивести чек
+      (як у супермаркеті) використовуючи елементи розмітки.
+    </p>
+    <script>
+      //1. Вводимо необхідні дані
+      let price1 = parseFloat(prompt("Введіть вартість товару", "0"))
+      let quantity1 = parseInt(prompt("Введіть кількість товару", "0"))
+      let price2 = parseFloat(prompt("Введіть вартість товару", "0"))
+      let quantity2 = parseInt(prompt("Введіть кількість товару", "0"))
+      let price3 = parseFloat(prompt("Введіть вартість товару", "0"))
+      let quantity3 = parseInt(prompt("Введіть кількість товару", "0"))
+      //2.Знаходимо результат
+      let sum1 = price1 * quantity1
+      let sum2 = price2 * quantity2
+      let sum3 = price3 * quantity3
+      let totalPrice = (sum1 + sum2 + sum3).toFixed(2)
+      //3.Виводимо результати
+      document.write(`
 		<br>
 			<mark>Товар 1 - ${price1} * ${quantity1} = ${sum1}</mark> <br>
 			<mark>Товар 2 - ${price2} * ${quantity2} = ${sum2}</mark> <br>
 			<mark>Товар 3 - ${price3} * ${quantity3} = ${sum3}</mark> <br>
 			<mark>Сума - ${totalPrice}</mark> <br>
 		`)
-	</script>
-</body>
-
+    </script>
+  </body>
 </html>

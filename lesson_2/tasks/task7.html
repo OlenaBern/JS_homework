@@ -1,32 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача №7</title>
+  </head>
 
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Задача №7</title>
-</head>
-
-<body>
-	<h1>Задача №6</h1>
-	<p>
-		Знайти суму випадкового номера місяця (від 1 до 12) та випадкового номера дня (від 0 до 6).
-	</p>
-	<script>
-		//1. Вводимо необхідні дані
-		let numOfMonth = Math.floor(Math.random() * 12) + 1
-		let numOfDay = Math.floor(Math.random() * 7)
-		//2.Знаходимо результат
-		let sum = numOfMonth + numOfDay
-		//3.Виводимо результати
-		document.write(`
+  <body>
+    <h1>Задача №6</h1>
+    <p>
+      Знайти суму випадкового номера місяця (від 1 до 12) та випадкового номера
+      дня (від 0 до 6).
+    </p>
+    <script>
+      //1. Вводимо необхідні дані
+      let numOfMonth = Math.floor(Math.random() * 12) + 1
+      let numOfDay = Math.floor(Math.random() * 7)
+      //2.Знаходимо результат
+      let sum = numOfMonth + numOfDay
+      //3.Виводимо результати
+      document.write(`
 		<br>
 			<mark>Випадковий номер місяця - ${numOfMonth}</mark> <br>
 			<mark>Випадковий номер дня - ${numOfDay}</mark> <br>
 			<mark>Сума випадкових номерів - ${sum}</mark> <br>
 		`)
-	</script>
-</body>
-
+    </script>
+  </body>
 </html>
