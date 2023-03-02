@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача №4</title>
+  </head>
+  <body>
+    <h1>Задача №4</h1>
+    <p>Вивести таблицю з 3 рядків і 7 стовпців.</p>
+    <table border="2px">
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+          <td>4</td>
+          <td>5</td>
+          <td>6</td>
+          <td>7</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+          <td>4</td>
+          <td>5</td>
+          <td>6</td>
+          <td>7</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+          <td>4</td>
+          <td>5</td>
+          <td>6</td>
+          <td>7</td>
+        </tr>
+      </tbody>
+    </table>
+    <h1><mark>Розв'язок:</mark></h1>
+
+    <script>
+      //1. Вводимо необхідні дані
+      const columnNum = 7
+      const rowNum = 3
+      //2.Перевіряємо і виводимо результат
+      document.write(`<table border = "2px">
+			<tbody>`)
+      for (let rowIndex = 0; rowIndex < rowNum; rowIndex++) {
+        document.write(`
+			<tr>
+			`)
+        for (let columnIndex = 1; columnIndex <= columnNum; columnIndex++) {
+          document.write(`
+			<td>${columnIndex}</td>
+				`)
+        }
+        document.write(`
+			</tr>
+		  `)
+      }
+      document.write(`
+		</tbody>
+		</table>`)
+    </script>
+  </body>
+</html>

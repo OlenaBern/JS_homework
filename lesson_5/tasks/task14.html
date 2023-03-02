@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача №14</title>
+  </head>
+  <body>
+    <h1>Задача №14</h1>
+    <p>
+      Каса. Користувачу повідомляють суму, яку йому треба сплатити. Користувач
+      поступово вводить суму грошей до тих пір, поки суми не буде достатньо для
+      оплати товарів (кожного разу користувачу повідомляють, яку ще суму
+      потрібно ввести).
+    </p>
+
+    <script>
+      //1. Вводимо необхідні дані
+      const MIN_PRICE = 1
+      const MAX_PRICE = 1000
+
+      let price =
+        MIN_PRICE + Math.floor(Math.random() * (MAX_PRICE - MIN_PRICE + 1))
+
+      //2.Перевіряємо  і виводимо результат
+      while (price > 0) {
+        let userPay = parseFloat(
+          prompt(`До сплати ${price}. Введіть скільки бажаєте сплатити`)
+        )
+        price -= userPay
+        if (price <= 0) document.write("<mark>Дякуємо за покупку!</mark>")
+      }
+    </script>
+  </body>
+</html>

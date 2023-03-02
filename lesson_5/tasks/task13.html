@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача №13</title>
+  </head>
+  <body>
+    <h1>Задача №13</h1>
+    <p>
+      Морський бій. Комп’ютер випадково розташовує одиночний корабель на полі
+      розміром N*M. Маючи К снарядів користувач намагається потопити корабель.
+    </p>
+    <h1><mark>Розв'язок:</mark></h1>
+
+    <script>
+      //1. Вводимо необхідні дані
+      let userFieldSize = parseInt(
+        prompt(
+          "Введіть розмір поля - кількість клітинок по горизонталі та по вертикалі (кількість клітинок по горизонталі та по вертикалі однакова)"
+        )
+      )
+      const ROW_CELL_AMOUNT = userFieldSize
+      const COLUMN_CELL_AMOUNT = userFieldSize // розміри поля
+
+      const MIN_CELL_AMOUNT = 1
+
+      let shellAmount = parseInt(
+        prompt("Введіть кількість снарядів, яку бажаєте отримати для гри")
+      )
+
+      let shipPlaceRow =
+        MIN_CELL_AMOUNT +
+        Math.floor(Math.random() * (ROW_CELL_AMOUNT - MIN_CELL_AMOUNT + 1))
+      let shipPlaceColumn =
+        MIN_CELL_AMOUNT +
+        Math.floor(Math.random() * (COLUMN_CELL_AMOUNT - MIN_CELL_AMOUNT + 1)) // комп'ютер розміщує корабель
+
+      //2.Перевіряємо  і виводимо результат
+      for (
+        let currentAttempt = 1;
+        currentAttempt <= shellAmount;
+        currentAttempt++
+      ) {
+        let userShotRow = parseInt(
+          prompt("Введіть номер клітинки в яку бажаєте влучити по горизонталі")
+        )
+        let userShotColumn = parseInt(
+          prompt("Введіть номер клітинки в яку бажаєте влучити по вертикалі")
+        )
+
+        let stillAttepts = shellAmount - currentAttempt 
+        if (
+          shipPlaceRow === userShotRow &&
+          shipPlaceColumn === userShotColumn
+        ) {
+          alert(`Вітаємо, ви влучили з ${currentAttempt} спроби.`)
+          break
+        } else
+          alert(
+            `Ви не влучили, спробуйте ще. Залишилося ${stillAttepts} спроб.`
+          )
+      }
+    </script>
+  </body>
+</html>

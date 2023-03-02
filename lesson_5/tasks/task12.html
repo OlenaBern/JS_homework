@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача №12</title>
+  </head>
+  <body>
+    <h1>Задача №12</h1>
+    <p>
+      Ігровий автомат. Випадково вибираємо зображення у 3 позиціях. Вибір у
+      кожній позиції вибирається як одне з чотирьох зображень. Вивести ці
+      зображення і повідомити виграш користувача (три перших зображення 100 грн,
+      три других – 200, три третіх – 500, три четвертих зображення – 1000грн).
+      Використати цикли і switch (для вибору зображення за номером).
+    </p>
+    <img src="../img/task_12_img.jpg" alt="image" />
+    <h1><mark>Розв'язок:</mark></h1>
+
+    <script>
+      //1. Вводимо необхідні дані
+      const positionNum = 3
+      const MAX_ITEM_TYPES = 4
+      const SAME_ITEM_TYPES_TO_WIN = 3
+      let itemCounter1 = 0
+      let itemCounter2 = 0
+      let itemCounter3 = 0
+      let itemCounter4 = 0
+
+      //2.Перевіряємо  і виводимо результат
+      for (let i = 0; i < positionNum; i++) {
+        let randomItemType = Math.floor(Math.random() * MAX_ITEM_TYPES) + 1
+
+        switch (randomItemType) {
+          case 1:
+            document.write(`<img src="../img/1.jpg" alt="image" />`)
+            itemCounter1++
+            break
+          case 2:
+            document.write(`<img src="../img/2.jpg" alt="image" />`)
+            itemCounter2++
+            break
+          case 3:
+            document.write(`<img src="../img/3.jpg" alt="image" />`)
+            itemCounter3++
+            break
+          case 4:
+            document.write(`<img src="../img/4.jpg" alt="image" />`)
+            itemCounter4++
+            break
+        }
+      }
+      if (itemCounter1 === SAME_ITEM_TYPES_TO_WIN)
+        document.write(`<br><mark>Ви виграли 100 гривень.</mark>`)
+      else if (itemCounter2 === SAME_ITEM_TYPES_TO_WIN)
+        document.write(`<br><mark>Ви виграли 200 гривень.</mark>`)
+      else if (itemCounter3 === SAME_ITEM_TYPES_TO_WIN)
+        document.write(`<br><mark>Ви виграли 500 гривень.</mark>`)
+      else if (itemCounter4 === SAME_ITEM_TYPES_TO_WIN)
+        document.write(`<br><mark>Ви виграли 1000 гривень.</mark>`)
+      else document.write(`<br><mark>Спробуйте ще.</mark>`)
+    </script>
+  </body>
+</html>

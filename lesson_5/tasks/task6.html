@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача №6</title>
+  </head>
+  <body>
+    <h1>Задача №6</h1>
+    <p>Вивести 3 таблиці (по 3 рядки і 3 стовпці у кожній) за зразком.</p>
+    <table border="2px">
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>5</td>
+          <td>6</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>8</td>
+          <td>9</td>
+        </tr>
+      </tbody>
+    </table>
+    <br />
+    <table border="2px">
+      <tbody>
+        <tr>
+          <td>10</td>
+          <td>11</td>
+          <td>12</td>
+        </tr>
+        <tr>
+          <td>13</td>
+          <td>14</td>
+          <td>15</td>
+        </tr>
+        <tr>
+          <td>16</td>
+          <td>17</td>
+          <td>18</td>
+        </tr>
+      </tbody>
+    </table>
+    <br />
+    <table border="2px">
+      <tbody>
+        <tr>
+          <td>19</td>
+          <td>20</td>
+          <td>21</td>
+        </tr>
+        <tr>
+          <td>22</td>
+          <td>23</td>
+          <td>24</td>
+        </tr>
+        <tr>
+          <td>25</td>
+          <td>26</td>
+          <td>27</td>
+        </tr>
+      </tbody>
+    </table>
+    <h1><mark>Розв'язок:</mark></h1>
+
+    <script>
+      //1. Вводимо необхідні дані
+      const tableNum = 3
+      const columnNum = 3
+      const rowNum = 3
+      let cellNum = 1
+
+      //2.Перевіряємо  і виводимо результат
+      for (let tableIndex = 0; tableIndex < tableNum; tableIndex++) {
+        document.write(`<table border = "2px">
+			<tbody>`)
+        for (let rowIndex = 0; rowIndex < rowNum; rowIndex++) {
+          document.write(`
+			<tr>
+			`)
+          for (let columnIndex = 1; columnIndex <= columnNum; columnIndex++) {
+            document.write(`
+			<td>${cellNum}</td>
+				`)
+            cellNum++
+          }
+          document.write(`
+			</tr>
+		  `)
+        }
+        document.write(`
+		</tbody>
+		</table>
+		<br>`)
+      }
+    </script>
+  </body>
+</html>

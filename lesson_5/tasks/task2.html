@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача №2</title>
+  </head>
+  <body>
+    <h1>Задача №2</h1>
+    <p>Створити 10 елементів для введення цін продуктів.</p>
+    <img src="../img/task_2_img.jpg" alt="image" />
+    <h1><mark>Розв'язок:</mark></h1>
+
+    <script>
+      //1. Вводимо необхідні дані
+      const productPriceInput = 10
+      //2.Перевіряємо і виводимо результат
+      for (let i = 1; i <= productPriceInput; i++) {
+        document.write(`
+					<label>Product # ${i} <input></label><br>
+					`)
+      }
+    </script>
+  </body>
+</html>
