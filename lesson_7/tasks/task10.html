@@ -20,7 +20,7 @@
         let sumPositiveTempValue = 0
         for (let i = 0; i < temperatureValue.length; i++) {
           if (temperatureValue[i] > 0) {
-            sumPositiveTempValue = sumPositiveTempValue + temperatureValue[i]
+            sumPositiveTempValue += temperatureValue[i]
             positiveTempCounter++
           }
         }
