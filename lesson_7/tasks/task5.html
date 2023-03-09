@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача №5</title>
+  </head>
+  <body>
+    <h1>Задача №5</h1>
+    <p>
+      Створити окремі функції, які переводять: 1)Сантиметри у дюйми; 2)Кілограми
+      у фунти; 3)Кілометри у милі.
+    </p>
+    <h1><mark>Розв'язок:</mark></h1>
+
+    <script>
+      //1. Опис функцій
+      function convertCmToInches(num) {
+        const CM_IN_INCH = 2.54
+        return num / CM_IN_INCH
+      }
+
+      function convertKgToIbs(num) {
+        const IB_IN_KG = 2.20462
+        return num * IB_IN_KG
+      }
+
+      function convertKmToMiles(num) {
+        const KM_IN_MILE = 1.609344
+        return num / KM_IN_MILE
+      }
+
+      //2. Використання функцій і виведення результатів.
+      const userCm = parseFloat(prompt("Введіть довжину у сантиметрах"))
+      const userKg = parseFloat(prompt("Введіть вагу у кілограмах"))
+      const userKm = parseFloat(prompt("Введіть довжину у кілометрах"))
+
+      const userInches = convertCmToInches(userCm)
+      const userIbs = convertKgToIbs(userKg)
+      const userMiles = convertKmToMiles(userKm)
+
+      document.write(`1) ${userCm} сантиметрів = ${userInches.toFixed(3)} дюймів. <br>
+		2) ${userKg} кілограмів = ${userIbs.toFixed(3)} фунтів. <br>
+		3) ${userKm} кілометрів = ${userMiles.toFixed(3)} миль.`)
+    </script>
+  </body>
+</html>

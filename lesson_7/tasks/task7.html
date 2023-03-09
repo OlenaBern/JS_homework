@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача №7</title>
+  </head>
+  <body>
+    <h1>Задача №7</h1>
+    <p>
+      Створити функцію, яка випадковим чином виводить на екран одне із 4
+      зображень (шляхи до зображень передаються у функцію).
+    </p>
+
+    <script>
+      //1. Опис функції
+      function getRandomImage(img1, img2, img3, img4) {
+        let imageNum
+        const minImageNum = 1
+        const maxImageNum = 4
+        const randomImageNum =
+          minImageNum +
+          Math.floor(Math.random() * (maxImageNum - minImageNum + 1))
+
+        switch (randomImageNum) {
+          case 1:
+            imageNum = img1
+            break
+          case 2:
+            imageNum = img2
+            break
+          case 3:
+            imageNum = img3
+            break
+          case 4:
+            imageNum = img4
+            break
+        }
+        return `<img src="${imageNum}" alt="image" />`
+      }
+      //2. Використання функції і виведення результатів.
+      let randomImage = getRandomImage(
+        "../img/1.jpg",
+        "../img/2.jpg",
+        "../img/3.jpg",
+        "../img/4.jpg"
+      )
+      document.write(`${randomImage}`)
+    </script>
+  </body>
+</html>

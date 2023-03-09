@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача №4</title>
+  </head>
+  <body>
+    <h1>Задача №4</h1>
+    <p>
+      Створити функцію, яка для 3 заданих чисел знаходить одночасно декілька
+      результатів: кількість парних, кількість додатних, кількість більших за
+      100.
+    </p>
+    <h1><mark>Розв'язок:</mark></h1>
+
+    <script>
+      //1. Опис функцій
+      function getEvenPositiveGreater100(num1, num2, num3) {
+        let evenNum = 0
+        let positiveNum = 0
+        let greater100Num = 0
+
+        if (num1 % 2 === 0) evenNum++
+        if (num2 % 2 === 0) evenNum++
+        if (num3 % 2 === 0) evenNum++
+
+        if (num1 > 0) positiveNum++
+        if (num2 > 0) positiveNum++
+        if (num3 > 0) positiveNum++
+
+        if (num1 > 100) greater100Num++
+        if (num2 > 100) greater100Num++
+        if (num3 > 100) greater100Num++
+        return `Кількість парних чисел: ${evenNum}.<br> Кількість додатних чисел: ${positiveNum}.<br> Кількість чисел більших за 100: ${greater100Num}.`
+      }
+
+      let userNum1 = parseFloat(prompt("Введіть перше число"))
+      let userNum2 = parseFloat(prompt("Введіть друге число"))
+      let userNum3 = parseFloat(prompt("Введіть третє число"))
+
+      let evenPositiveGreater100 = getEvenPositiveGreater100(
+        userNum1,
+        userNum2,
+        userNum3
+      )
+      document.write(`Ви ввели: ${userNum1}, ${userNum2}, ${userNum3}.<br>
+		 ${evenPositiveGreater100}`)
+    </script>
+  </body>
+</html>
