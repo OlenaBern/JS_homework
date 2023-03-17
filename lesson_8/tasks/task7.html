@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача №7</title>
+  </head>
+  <body>
+    <h1>Задача №7</h1>
+    <p>
+      Дано послідовність платіжок протягом року. Знайти сумарну кількість грошей
+      за:
+    </p>
+    <ol>
+      <li>за весь рік;</li>
+      <li>у першій половині року;</li>
+      <li>у другій половині року;</li>
+      <li>за літо;</li>
+      <li>за ІІ квартал;</li>
+      <li>за парні місяці (з парними номерами);</li>
+      <li>за місяці, які є початковими у сезоні (весна, літо, осінь, зима).</li>
+    </ol>
+    <h1><mark>Розв'язок:</mark></h1>
+
+    <script>
+      //1. Генеруємо масив платіжок
+      function getRandomArray(valuesNumber, minValue, maxValue) {
+        let arr = []
+        for (let i = 0; i < valuesNumber; i++) {
+          const randomNum =
+            minValue + Math.floor(Math.random() * (maxValue - minValue + 1))
+          arr.push(randomNum)
+        }
+        return arr
+      }
+      //2. Описуємо функції
+      function getPaymentsSumInRange(
+        paymentsList,
+        minMonthIndex,
+        maxMonthIndex
+      ) {
+        let sum = 0
+        for (let month = minMonthIndex - 1; month < maxMonthIndex; month++) {
+          sum += paymentsList[month]
+        }
+        return sum
+      }
+
+      //сума за парні місяці (2, 4, 6, 8, 10, 12)
+      function getPaymentsSumForEvenMonth(
+        paymentsList,
+        minMonthIndex,
+        maxMonthIndex
+      ) {
+        let sum = 0
+        for (let month = minMonthIndex; month <= maxMonthIndex; month++) {
+          if (month % 2 === 0) sum += paymentsList[month - 1]
+        }
+        return sum
+      }
+
+      //сума за місяці, які є початковими у сезоні (весна, літо, осінь, зима) (3, 6, 9. 12)
+      function getPaymentsSumForBeginingOfSeasonMonth(
+        paymentsList,
+        minMonthIndex,
+        maxMonthIndex
+      ) {
+        let sum = 0
+        for (let month = minMonthIndex; month <= maxMonthIndex; month++) {
+          if (month % 3 === 0) sum += paymentsList[month - 1]
+        }
+        return sum
+      }
+
+      //3. Використовуємо функцію і виводимо результати
+      const paymentsListForYear = getRandomArray(12, 1, 100)
+      //сума за рік(1-12)
+      const sumForYear = getPaymentsSumInRange(paymentsListForYear, 1, 12)
+      //сума за першу половину року (1-6)
+      const sumForFirstHalfOfYear = getPaymentsSumInRange(
+        paymentsListForYear,
+        1,
+        6
+      )
+      //сума за другу половину року (6-12)
+      const sumForSecondHalfOfYear = getPaymentsSumInRange(
+        paymentsListForYear,
+        6,
+        12
+      )
+      //сума за літо(6-8)
+      const sumForSummer = getPaymentsSumInRange(paymentsListForYear, 6, 8)
+      //сума за ІІ квартал(4-6)
+      const sumForSecondQuarterOfYear = getPaymentsSumInRange(
+        paymentsListForYear,
+        4,
+        6
+      )
+      //сума за парні місяці (2, 4, 6, 8, 10, 12)
+      const sumForEvenMonth = getPaymentsSumForEvenMonth(
+        paymentsListForYear,
+        1,
+        12
+      )
+      //сума за місяці, які є початковими у сезоні (весна, літо, осінь, зима) (3, 6, 9. 12)
+      const sumForBeginingOfSeasonMonth =
+        getPaymentsSumForBeginingOfSeasonMonth(paymentsListForYear, 1, 12)
+
+      document.write(`
+		Платіжки за рік:  <mark>${paymentsListForYear}</mark>.<br>
+		Сума за рік (1-12):  <mark>${sumForYear}</mark>.<br>
+		Сума за першу половину року (1-6):  <mark>${sumForFirstHalfOfYear}</mark>.<br>
+		Сума за другу половину року (6-12):  <mark>${sumForSecondHalfOfYear}</mark>.<br>
+		Сума за літо (6-8):  <mark>${sumForSummer}</mark>.<br>
+		Сума за ІІ квартал (4-6):  <mark>${sumForSecondHalfOfYear}</mark>.<br>
+		Сума за парні місяці (2, 4, 6, 8, 10, 12):  <mark>${sumForEvenMonth}</mark>.<br>
+		Сума за місяці, які є початковими у сезоні (весна, літо, осінь, зима) (3, 6, 9. 12):  <mark>${sumForBeginingOfSeasonMonth}</mark>.<br>
+		`)
+    </script>
+  </body>
+</html>

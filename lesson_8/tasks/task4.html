@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача №4</title>
+  </head>
+  <body>
+    <h1>Задача №4</h1>
+    <p>
+      Дано послідовність номерів автомобілів. Підрахувати кількість номерів,
+      які:
+    </p>
+    <ul>
+      <li>починаються на букву «А»;</li>
+      <li>перша і остання літери співпадають;</li>
+      <li>складаються з більше ніш 5 символів.</li>
+    </ul>
+    <h1><mark>Розв'язок:</mark></h1>
+
+    <script>
+      //1.Вводимо необхідні дані
+      let carNumbersList = ["ab678c", "bm437tb", "at78a", "ap57v", "bm437tc"]
+      //2.Описуємо функції
+      //починаються на букву «А»
+      function getNumbersAmountFirstLetterA(carNumbersList) {
+        let counterFirstLetterA = 0
+        for (let i = 0; i < carNumbersList.length; i++) {
+          if (carNumbersList[i][0] === "a") counterFirstLetterA++
+        }
+        return counterFirstLetterA
+      }
+      //перша і остання літери співпадають
+      function getNumbersAmountFirstAndLastSameLetters(carNumbersList) {
+        let counterFirstAndLastSameLetters = 0
+        for (let i = 0; i < carNumbersList.length; i++) {
+          if (
+            carNumbersList[i][0] ===
+            carNumbersList[i][carNumbersList[i].length - 1]
+          )
+            counterFirstAndLastSameLetters++
+        }
+        return counterFirstAndLastSameLetters
+      }
+		//складаються з більше ніш 5 символів
+		function getNumberAmountWithSymbolsMore5(carNumbersList) {
+			let counterSymbolsMore5 = 0
+			for (let i = 0; i < carNumbersList.length; i++) {
+				if (carNumbersList[i].length > 5) 
+				counterSymbolsMore5 ++
+			}
+			return counterSymbolsMore5
+		}
+      //3.Виводимо результати
+      const numbersAmountFirstLetterA =
+        getNumbersAmountFirstLetterA(carNumbersList)
+      const numbersAmountFirstAndLastSameLetters =
+        getNumbersAmountFirstAndLastSameLetters(carNumbersList)
+		  const numbersAmountWithSymbolsMore5 = getNumberAmountWithSymbolsMore5(carNumbersList)
+      document.write(`Кількість номерів, які починаються на "А" - ${numbersAmountFirstLetterA}.<br>
+		Кількість номерів в яких перша і остання літери співпадають - ${numbersAmountFirstAndLastSameLetters}.<br>
+		Кількість номерів, які складаються з більше ніш 5 символів - ${numbersAmountWithSymbolsMore5}.
+		`)
+    </script>
+  </body>
+</html>

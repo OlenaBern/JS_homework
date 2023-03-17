@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача №5</title>
+  </head>
+  <body>
+    <h1>Задача №5</h1>
+    <p>Дано послідовність оцінок учня. Підрахувати кількість:</p>
+    <ul>
+      <li>двійок</li>
+      <li>кількість хороших оцінок (добре, відмінно);</li>
+      <li>кількість оцінок, які нижче середнього.</li>
+    </ul>
+    <h1><mark>Розв'язок:</mark></h1>
+
+    <script>
+      //1.Вводимо необхідні дані
+      let studentsGradesList = [3, 4, 5, 3, 2, 4, 5, 5, 4]
+
+      //2.Описуємо функції
+      //2.1. Кількість двійок
+      function getNumberOfBadGrades(studentsGradesList) {
+        let badGradesCounter = 0
+        for (let i = 0; i < studentsGradesList.length; i++) {
+          if (studentsGradesList[i] === 2) badGradesCounter++
+        }
+        return badGradesCounter
+      }
+      //2.2. Кількість хороших оцінок (добре, відмінно).
+      function getNumberOfGoodGrades(studentsGradesList) {
+        let goodGradesCounter = 0
+        const satisfactoryGrade = 3
+        for (let i = 0; i < studentsGradesList.length; i++) {
+          if (studentsGradesList[i] > satisfactoryGrade) goodGradesCounter++
+        }
+        return goodGradesCounter
+      }
+      //2.3. Кількість оцінок, які нижче середнього.
+      function getAverageGrade(studentsGradesList) {
+        let gradesSum = 0
+        for (let i = 0; i < studentsGradesList.length; i++) {
+          gradesSum += studentsGradesList[i]
+        }
+        return gradesSum / studentsGradesList.length
+      }
+
+      function getNumberOfGradesBelowAverage(studentsGradesList, averageGrade) {
+        let gradesBelowAverageCounter = 0
+        for (let i = 0; i < studentsGradesList.length; i++) {
+          if (studentsGradesList[i] < averageGrade) gradesBelowAverageCounter++
+        }
+        return gradesBelowAverageCounter
+      }
+
+      //3.Виводимо результат.
+      const numberOfBadGrades = getNumberOfBadGrades(studentsGradesList)
+      const numberOfGoodGrades = getNumberOfGoodGrades(studentsGradesList)
+      const averageGrade = getAverageGrade(studentsGradesList)
+      const numberOfGradesBelowAverage = getNumberOfGradesBelowAverage(
+        studentsGradesList,
+        averageGrade
+      )
+
+      document.write(`Оцінки учня - ${studentsGradesList}.<br>
+		Кількість двійок - ${numberOfBadGrades}.<br>
+		Кількість хороших оцінок (добре, відмінно) - ${numberOfGoodGrades}.<br>
+		Середня оцінка - ${averageGrade.toFixed(1)}.<br>
+		Кількість оцінок, які нижче середнього - ${numberOfGradesBelowAverage}.
+		`)
+    </script>
+  </body>
+</html>

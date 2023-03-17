@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача №1</title>
+  </head>
+  <body>
+    <h1>Задача №1</h1>
+    <p>
+      Дано масив, який містить оцінки з К предметів. Знайти середній бал і
+      з’ясувати до якої категорії він відноситься (відмінник, двійочник (має
+      хоча би одну двійку), хорошист (оцінки добре і відмінно), трійочник(є хоча
+      би одна трійка)).
+    </p>
+    <h1><mark>Розв'язок:</mark></h1>
+
+    <script>
+      // 1. Вводимо необхідні дані
+      // const subjectsNum = parseInt(prompt("Введіть кількість предметів"))
+      // let gradesList = []
+      // for (let i = 0; i < subjectsNum; i++) {
+      //   let grade = parseInt(prompt("Введіть оцінку"))
+      //   gradesList.push(grade)
+      // }
+      let gradesList = [4, 5, 3, 4, 5]
+		
+      //2. Описуємо функції
+      function getAverageGrade(gradesList) {
+        let gradesSum = 0
+        for (let i = 0; i < gradesList.length; i++) {
+          gradesSum += gradesList[i]
+        }
+        return gradesSum / gradesList.length
+      }
+
+      function getStudentCategory(gradesList) {
+        const minGrade = Math.min(...gradesList)
+        let category
+        switch (minGrade) {
+          case 2:
+            category = "двійочник"
+            break
+          case 3:
+            category = "трійочник"
+            break
+          case 4:
+            category = "хорошист"
+            break
+          case 5:
+            category = "відмінник"
+            break
+        }
+        return category
+      }
+
+      //3. Виводимо результат
+      const averageGrade = getAverageGrade(gradesList)
+      const studentCategory = getStudentCategory(gradesList)
+      document.write(
+        `Середній бал - ${averageGrade}.<br> Студент відноситься до категорії - "${studentCategory}".`
+      )
+    </script>
+  </body>
+</html>

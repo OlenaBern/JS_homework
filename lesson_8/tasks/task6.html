@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача №6</title>
+  </head>
+  <body>
+    <h1>Задача №6</h1>
+    <p>
+      Дано послідовність цін товарів та назв (у окремих масивах). Вивести на
+      екран ті, які може собі дозволити користувач (кількість грошей задається).
+      Приклад збереження даних:
+    </p>
+    <img src="../image/image_1.jpg" alt="" />
+    <h1><mark>Розв'язок:</mark></h1>
+
+    <script>
+      //1.Вводимо необхідні дані
+      let productPrices = [1000, 20, 31, 500, 50]
+      let productTitles = ["cheese", "juice", "bread", "butter", "milk"]
+      const moneyAmount = parseFloat(
+        prompt("Please enter the amount of money", "0")
+      )
+
+      function getGoodsCanAfford(moneyAmount, productPrices, productTitles) {
+        let goodsList = []
+        for (let i = 0; i < productPrices.length; i++) {
+          if (moneyAmount >= productPrices[i])
+            goodsList.push(`${productTitles[i]}`)
+        }
+        return goodsList
+      }
+
+      const goodsCanAfford = getGoodsCanAfford(
+        moneyAmount,
+        productPrices,
+        productTitles
+      )
+      document.write(`The amount of money - ${moneyAmount}.<br>
+		Products: ${productTitles}.<br>
+		Prices: ${productPrices}.<br>
+		You can buy:<br> ${goodsCanAfford}.
+		`)
+    </script>
+  </body>
+</html>
