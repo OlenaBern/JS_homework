@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача №2</title>
+  </head>
+  <body>
+    <h1>Задача №2</h1>
+    <p>
+      Користувач вводить кількість елементів. Створити масив, у якому перша
+      половина заповнена 1-цями, а друга заповнена 7-ками.
+    </p>
+    <h1><mark>Розв'язок:</mark></h1>
+    <script>
+      const userElementsAmount = parseInt(prompt("Введіть кількість елементів"))
+      let elementsList = new Array(userElementsAmount)
+		const elementsListMiddleIndex = Math.floor(elementsList.length / 2)
+      elementsList.fill(1, 0, elementsListMiddleIndex)
+		elementsList.fill(7, elementsListMiddleIndex)
+		document.write(elementsList)
+    </script>
+  </body>
+</html>

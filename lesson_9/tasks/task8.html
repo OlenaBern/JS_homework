@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача №8</title>
+  </head>
+  <body>
+    <h1>Задача №8</h1>
+    <p>
+      Дано масив номерів авто. Сформувати новий масив тих, які починаються на
+      «А».
+    </p>
+    <h1><mark>Розв'язок:</mark></h1>
+    <script>
+      let arrayOfCarsNumber = ["AD3045", "GF2590", "SE6782", "AP7230", "AT4080"]
+      let newArrayOfCarsNumber = arrayOfCarsNumber.filter(
+        autoNumber => autoNumber[0] === "A"
+      )
+		document.write(`${arrayOfCarsNumber}<br>
+		Новий масив номерів, які починаються на 'A': ${newArrayOfCarsNumber}.`)
+    </script>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача №5</title>
+  </head>
+  <body>
+    <h1>Задача №5</h1>
+    <p>
+      Дано масив елементів. Знайти добуток додатних елементів. //======= Тут
+      використовуйте що хочете для розв’язання==================
+    </p>
+    <h1><mark>Розв'язок:</mark></h1>
+    <script>
+      let arr = [2, 0, -1, 5, -2, 8, 2, 4]
+      let productOfPositiveElements = 1
+      for (const element of arr) {
+        if (element > 0) productOfPositiveElements *= element
+      }
+      document.write(
+        `Добуток додатних елементів - ${productOfPositiveElements}.`
+      )
+    </script>
+  </body>
+</html>
