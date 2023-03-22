@@ -26,14 +26,14 @@
       let sum1 = price1 * quantity1
       let sum2 = price2 * quantity2
       let sum3 = price3 * quantity3
-      let totalPrice = (sum1 + sum2 + sum3).toFixed(2)
+      let totalPrice = sum1 + sum2 + sum3
       //3.Виводимо результати
       document.write(`
 		<br>
-			<mark>Товар 1 - ${price1} * ${quantity1} = ${sum1}</mark> <br>
-			<mark>Товар 2 - ${price2} * ${quantity2} = ${sum2}</mark> <br>
-			<mark>Товар 3 - ${price3} * ${quantity3} = ${sum3}</mark> <br>
-			<mark>Сума - ${totalPrice}</mark> <br>
+			<mark>Товар 1 - ${price1} * ${quantity1} = ${sum1.toFixed(2)}</mark> <br>
+			<mark>Товар 2 - ${price2} * ${quantity2} = ${sum2.toFixed(2)}</mark> <br>
+			<mark>Товар 3 - ${price3} * ${quantity3} = ${sum3.toFixed(2)}</mark> <br>
+			<mark>Сума - ${totalPrice.toFixed(2)}</mark> <br>
 		`)
     </script>
   </body>
