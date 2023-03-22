@@ -68,9 +68,9 @@
       //загальна кількість клієнтів у робочі дні (1-5)
       function getSumVisitorsOfWorkingDays(visitorsPerWeek) {
         let sum = 0
-        for (let i = 0; i < visitorsPerWeek.length; i++) {
-          const workingDays = 5
-          if (i < workingDays) sum += visitorsPerWeek[i]
+        const workingDays = 5
+        for (let i = 0; i < workingDays; i++) {
+          sum += visitorsPerWeek[i]
         }
         return sum
       }
@@ -78,9 +78,9 @@
       //загальна кількість клієнтів у вихідні (6-7)
       function getSumVisitorsOnWeekend(visitorsPerWeek) {
         let sum = 0
-        for (let i = 0; i < visitorsPerWeek.length; i++) {
-          const workingDays = 5
-          if (i >= workingDays) sum += visitorsPerWeek[i]
+        const workingDays = 5
+        for (let i = workingDays; i < visitorsPerWeek.length; i++) {
+          sum += visitorsPerWeek[i]
         }
         return sum
       }

@@ -54,8 +54,8 @@
         maxMonthIndex
       ) {
         let sum = 0
-        for (let month = minMonthIndex; month <= maxMonthIndex; month++) {
-          if (month % 2 === 0) sum += paymentsList[month - 1]
+        for (let month = minMonthIndex; month <= maxMonthIndex; month += 2) {
+          sum += paymentsList[month - 1]
         }
         return sum
       }
@@ -67,8 +67,8 @@
         maxMonthIndex
       ) {
         let sum = 0
-        for (let month = minMonthIndex; month <= maxMonthIndex; month++) {
-          if (month % 3 === 0) sum += paymentsList[month - 1]
+        for (let month = minMonthIndex; month <= maxMonthIndex; month += 3) {
+          sum += paymentsList[month - 1]
         }
         return sum
       }
