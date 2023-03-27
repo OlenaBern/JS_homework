@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача №5</title>
+  </head>
+  <body>
+    <h1>Задача №5</h1>
+    <p>
+      Дано історію цін на цінні папери за деякий період (згенерувати від 1 до
+      10000).<br />
+      Підрахувати кількість змін цін.
+    </p>
+    <h1><mark>Розв'язок:</mark></h1>
+    <script>
+      //описуємо функцію генерування масиву від 1 до 10000
+      function getRandomArray(priceNumber) {
+        const minValue = 1
+        const maxValue = 10000
+        let randomArray = []
+        for (let i = 0; i < priceNumber; i++) {
+          let randomNumber =
+            minValue + Math.floor(Math.random() * (maxValue - minValue + 1))
+          randomArray.push(randomNumber)
+        }
+        return randomArray
+      }
+
+      const userPriceNumber = parseInt(
+        prompt("Введіть кількість цін на цінні папери за деякий період")
+      )
+      let userPriceArray = getRandomArray(userPriceNumber)
+
+      //Підрахувати кількість змін цін.
+      let pricesChangesAmount = userPriceArray.reduce(
+        (prevValue, element, index, arrRef) => {
+          if (element !== element[index - 1]) prevValue++
+          return prevValue
+        },0
+      )
+      //виводимо результат
+      document.write(`Історія цін на цінні папери: ${userPriceArray}.<br>
+		Кількість змін цін - ${pricesChangesAmount}.
+		`)
+    </script>
+  </body>
+</html>
