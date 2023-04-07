@@ -36,9 +36,11 @@
       //Підрахувати кількість змін цін.
       let pricesChangesAmount = userPriceArray.reduce(
         (prevValue, element, index, arrRef) => {
-          if (element !== element[index - 1]) prevValue++
+          if (element !== arrRef[index + 1] && arrRef[index + 1] !== undefined)
+            prevValue++
           return prevValue
-        },0
+        },
+        0
       )
       //виводимо результат
       document.write(`Історія цін на цінні папери: ${userPriceArray}.<br>

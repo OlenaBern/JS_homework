@@ -16,7 +16,7 @@
     </p>
     <h1><mark>Розв'язок:</mark></h1>
     <script>
-		//описуємо функцію генерування масиву від 1 до 10000
+      //описуємо функцію генерування масиву від 1 до 10000
       function getRandomArray(priceNumber) {
         const minValue = 1
         const maxValue = 10000
@@ -34,12 +34,15 @@
       )
       let userPriceArray = getRandomArray(userPriceNumber)
 
-		//Сформувати новий масив, у якому є номери тільки тих, що більші за 1000 грн.
-      let priceMore1000IndexArray = []
-      userPriceArray.map((element, index) => {
-        if (element > 1000) priceMore1000IndexArray.push(index)
-      })
-		//виводимо результат
+      //Сформувати новий масив, у якому є номери тільки тих, що більші за 1000 грн.
+      let priceMore1000IndexArray = userPriceArray.reduce(
+        (prevList, element, index) => {
+          if (element > 1000) prevList.push(index)
+          return prevList
+        },
+        []
+      )
+      //виводимо результат
       document.write(`Історія цін на цінні папери: ${userPriceArray}.<br>
       Номери тих, які більші за 1000: ${priceMore1000IndexArray}.`)
     </script>
