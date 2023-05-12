@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача №1</title>
+  </head>
+  <body>
+    <h1>Задача №1</h1>
+    <p>Знайти суми елементів у вказаній області.</p>
+    <ol>
+      <li>
+        <br />
+        <img src="../img/1.jpg" alt="img" />
+      </li>
+      <li>
+        <br />
+        <img src="../img/2.jpg" alt="img" />
+      </li>
+      <li>
+        <br />
+        <img src="../img/3.jpg" alt="img" />
+      </li>
+      <li>
+        <br />
+        <img src="../img/4.jpg" alt="img" />
+      </li>
+      <li>Суму парних рядків</li>
+      <li>Суму непарних стовпців</li>
+      <li>У парних рядках – непарні стовпці, у непарних – парні.</li>
+    </ol>
+    <h1><mark>Розв'язок:</mark></h1>
+    <script>
+      //функція генерування рандомного числа
+      function getRandomNumber(minValue, maxValue) {
+        return minValue + Math.floor(Math.random() * (maxValue - minValue + 1))
+      }
+
+      //функція генерування одного одновимірного масиву (одного рядка)
+      function generateRandomArray(arrayLength, minValue, maxValue) {
+        const arr = []
+        for (let i = 0; i < arrayLength; i++) {
+          const randNum = getRandomNumber(minValue, maxValue)
+          arr.push(randNum)
+        }
+        return arr
+      }
+
+      //функція генерування двовимірного масиву(двовимірної таблиці даних)
+      function generateRandomTable(
+        rowsNumber,
+        columsNumber,
+        minValue,
+        maxValue
+      ) {
+        const table = []
+        for (let i = 0; i < rowsNumber; i++) {
+          const randomRow = generateRandomArray(
+            columsNumber,
+            minValue,
+            maxValue
+          ) //генеруємо рядок
+          table.push(randomRow)
+        }
+        return table
+      }
+
+      const table = generateRandomTable(4, 4, 0, 9)
+
+      //функція знаходження суми у певній області
+      function getSumInCertainArea(
+        arr,
+        rowStart,
+        columnStart,
+        rowEnd,
+        columnEnd
+      ) {
+        let sum = 0
+        for (let rowIndex = rowStart; rowIndex < rowEnd; rowIndex++)
+          for (
+            let columnIndex = columnStart;
+            columnIndex < columnEnd;
+            columnIndex++
+          )
+            sum += arr[rowIndex][columnIndex]
+        return sum
+      }
+
+      //функція знаходження суми у парних рядків
+      function getSumInEvenRows(arr) {
+        let sum = 0
+        const rowsNumber = arr.length
+        for (let rowIndex = 0; rowIndex < rowsNumber; rowIndex += 2)
+          for (
+            let columnIndex = 0;
+            columnIndex < arr[rowIndex].length;
+            columnIndex++
+          )
+            sum += arr[rowIndex][columnIndex]
+        return sum
+      }
+
+      //функція знаходження суми у непарних стовпців
+      function getSumInOddColumns(arr) {
+        let sum = 0
+        const rowsNumber = arr.length
+        for (let rowIndex = 0; rowIndex < rowsNumber; rowIndex++)
+          for (
+            let columnIndex = 1;
+            columnIndex < arr[rowIndex].length;
+            columnIndex += 2
+          )
+            sum += arr[rowIndex][columnIndex]
+        return sum
+      }
+      //функція знаходження суми у парних рядках - непарні стовпці, у непарних - парні
+      function getSumInOddAndEvenRowsAndColumns(arr) {
+        let sum = 0
+        const rowsNumber = arr.length
+        for (let rowIndex = 0; rowIndex < rowsNumber; rowIndex++)
+          for (
+            let columnIndex = 1 - (rowIndex % 2);
+            columnIndex < arr[rowIndex].length;
+            columnIndex += 2
+          )
+            sum += arr[rowIndex][columnIndex]
+        return sum
+      }
+
+      //1)
+      const sumTopLeft = getSumInCertainArea(table, 0, 0, 2, 2)
+      //2)
+      const sumTopRight = getSumInCertainArea(table, 0, 2, 2, 4)
+      //3)
+      const sumBottomLeft = getSumInCertainArea(table, 2, 0, 4, 2)
+      //4)
+      const sumBottomRight = getSumInCertainArea(table, 2, 2, 4, 4)
+      //5)
+      const sumInEvenRows = getSumInEvenRows(table)
+      //6)
+      const sumInOddColumns = getSumInOddColumns(table)
+      //7)
+      const sumInOddAndEven = getSumInOddAndEvenRowsAndColumns(table)
+      document.write(`${table.join("<br>")}<br>
+		<ol>
+		<li>
+        <br />
+        <img src="../img/1.jpg" alt="img" />
+      </li>
+		Сума елементів у вказаній області = ${sumTopLeft}. <br>
+		<li>
+        <br />
+        <img src="../img/2.jpg" alt="img" />
+      </li>
+		Сума елементів у вказаній області = ${sumTopRight}. <br>
+		<li>
+        <br />
+        <img src="../img/3.jpg" alt="img" />
+      </li>
+		Сума елементів у вказаній області = ${sumBottomLeft}. <br>
+		<li>
+        <br />
+        <img src="../img/4.jpg" alt="img" />
+      </li>
+		Сума елементів у вказаній області = ${sumBottomRight}. <br>
+		<li>
+		Сума елементів у парних рядках = ${sumInEvenRows}. <br>
+		</li>
+		<li>
+		Сума елементів у непарних стовпцях = ${sumInOddColumns}. <br>
+		</li>
+		<li>
+		Сума елементів у парних рядках - непарні стовпці, у непарних - парні = ${sumInOddAndEven}. <br>
+		</li>
+		</ol>
+		`)
+    </script>
+  </body>
+</html>
