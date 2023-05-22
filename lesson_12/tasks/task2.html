@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача №2</title>
+  </head>
+  <body>
+    <h1>Задача №2</h1>
+    <p>
+      Дано масив 30 випадкових цілих чисел. Підрахувати скільки було обмінів під
+      час сортування змішуванням.
+    </p>
+    <h1><mark>Розв'язок:</mark></h1>
+    <script>
+      //функція генерування рандомного числа
+      function getRandomNumber(minValue, maxValue) {
+        return minValue + Math.floor(Math.random() * (maxValue - minValue + 1))
+      }
+
+      //функція генерування одного одновимірного масиву (одного рядка)
+      function generateRandomArray(arrayLength, minValue, maxValue) {
+        const arr = []
+        for (let i = 0; i < arrayLength; i++) {
+          const randNum = getRandomNumber(minValue, maxValue)
+          arr.push(randNum)
+        }
+        return arr
+      }
+
+      //генеруємо масив і робимо копію масиву
+      const array = generateRandomArray(30, 1, 20)
+      const array2 = [...array]
+
+      //сортування змішуванням і підраховуємо к-ть
+      function getExchangesNumberCoctailSort(arr) {
+        let leftIndex = 0
+        let rightIndex = arr.length - 1
+        let counter = 0 //змінна для підрахунку обмінів
+
+        while (leftIndex < rightIndex) {
+          for (let index = leftIndex; index < rightIndex; index++) {
+            if (arr[index] > arr[index + 1]) {
+              let tmp = arr[index + 1]
+              arr[index + 1] = arr[index]
+              arr[index] = tmp
+              counter++ //збільшення лічильника обмінів
+            }
+          }
+          rightIndex--
+
+          for (let index = rightIndex; index > leftIndex; index--) {
+            if (arr[index] < arr[index - 1]) {
+              let tmp = arr[index - 1]
+              arr[index - 1] = arr[index]
+              arr[index] = tmp
+              counter++ //збільшення лічильника обмінів
+            }
+          }
+          leftIndex++
+        }
+        return counter //повертаємо кількість обмінів
+      }
+
+      //сортуємо масив і підраховуємо к-ть обмінів
+      const amountOfSortingExchanges = getExchangesNumberCoctailSort(array2)
+
+      //виводимо результат
+      document.write(`Згенерований масив: <br>[${array}].<br><br>
+		 Кількість обмінів: ${amountOfSortingExchanges}.<br>
+		Відсортований масив: [${array2}].`)
+    </script>
+  </body>
+</html>

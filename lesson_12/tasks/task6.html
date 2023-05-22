@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача №6</title>
+  </head>
+  <body>
+    <h1>Задача №6</h1>
+    <p>
+      Дано масив імен. Застосовуючи відповідне сортування та бінарний пошук
+      визначити, чи є у масиві ім’я довжиною 5 символів і під яким індексом.
+    </p>
+    <h1><mark>Розв'язок:</mark></h1>
+
+    <script>
+      const nameArray = [
+        "Olivia",
+        "Emma",
+        "Sophia",
+        "James",
+        "Olga",
+        "Isabella",
+        "Henry",
+        "Mia",
+        "Lucas",
+        "Evelyn",
+      ]
+      const nameArray2 = [...nameArray]
+
+      //Сортування бульбашкою (сортуємо за воджиною елемента)
+      function bubbleSort(arr) {
+        let changed
+        do {
+          changed = false
+          for (let i = 1; i < arr.length; i++) {
+            if (arr[i - 1].length > arr[i].length) {
+              let tmp = arr[i - 1]
+              arr[i - 1] = arr[i]
+              arr[i] = tmp
+              changed = true
+            }
+          }
+        } while (changed === true)
+        return arr
+      }
+
+      const sortedNameArray = bubbleSort(nameArray2)
+      document.write(`Масив імен: <br>[${nameArray}].<br><br>
+		Відсортований масив імен: <br>[${sortedNameArray}].<br><br>`)
+
+      //Знаходження індексу елемента у масиві (якщо немає, то результат = -1)
+      function findIndexBinarySearch(arr, searchElementLength) {
+        let start = 0
+        let end = arr.length - 1
+        while (start <= end) {
+          const middle = Math.floor((start + end) / 2)
+          if (arr[middle].length === searchElementLength) return middle
+          if (arr[middle].length < searchElementLength) start = middle + 1
+          if (arr[middle].length > searchElementLength) end = middle - 1
+        }
+        return -1
+      }
+
+      const nameIndex = findIndexBinarySearch(sortedNameArray, 5)
+
+      if (nameIndex !== -1)
+        document.write(
+          `Ім'я довжиною 5 символів входить у масив під індексом ${nameIndex}.`
+        )
+      else document.write("Ім'я довжиною 5 символів не входить у масив.")
+
+      //---------Дякую за перевірку =) ---------
+    </script>
+  </body>
+</html>
