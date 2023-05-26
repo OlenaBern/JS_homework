@@ -128,14 +128,22 @@
         return sum
       }
 
+		const startRow = 0
+		const startColumn = 0
+      const middleRow = Math.floor(table.length / 2)
+		const middleColumn = Math.floor(table[middleRow].length/2)
+		const endRow = table.length
+		const endColumn = table[0].length
+
+
       //1)
-      const sumTopLeft = getSumInCertainArea(table, 0, 0, 2, 2)
+      const sumTopLeft = getSumInCertainArea(table, startRow, startColumn, middleRow, middleColumn)
       //2)
-      const sumTopRight = getSumInCertainArea(table, 0, 2, 2, 4)
+      const sumTopRight = getSumInCertainArea(table, startRow, middleColumn, endRow, endColumn)
       //3)
-      const sumBottomLeft = getSumInCertainArea(table, 2, 0, 4, 2)
+      const sumBottomLeft = getSumInCertainArea(table, middleRow, startColumn, endRow, middleColumn)
       //4)
-      const sumBottomRight = getSumInCertainArea(table, 2, 2, 4, 4)
+      const sumBottomRight = getSumInCertainArea(table, middleRow, middleColumn, endRow, endColumn)
       //5)
       const sumInEvenRows = getSumInEvenRows(table)
       //6)
