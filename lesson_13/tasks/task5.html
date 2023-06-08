@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача №5</title>
+  </head>
+  <body>
+    <h1>Задача №5</h1>
+    <p>
+      Тренажер додавання. Кожні 10 секунд користувачу задають випадковий приклад
+      з додавання двох цифр і робиться перевірка.
+    </p>
+    <h1><mark>Розв'язок:</mark></h1>
+
+    <script>
+      function getRandomNumber(minValue, maxValue) {
+        return minValue + Math.floor(Math.random() * (maxValue - minValue + 1))
+      }
+
+		function generateAdditionTask() {
+			const firstNum = getRandomNumber(1, 5)
+			const secondNum = getRandomNumber(1, 5)
+			const sum = firstNum + secondNum
+			const userSum = parseInt(prompt((`Введіть відповідь: ${firstNum}+${secondNum} = `)))
+			if (sum === userSum) alert('Правильно!')
+			else alert('Неправильно. Спробуйте ще!')
+		}
+		let timer = setInterval(generateAdditionTask, 10000)
+    </script>
+  </body>
+</html>

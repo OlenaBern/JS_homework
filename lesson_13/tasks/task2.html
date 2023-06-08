@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача №2</title>
+  </head>
+  <body>
+    <h1>Задача №2</h1>
+    <img src="../img/img_2.jpg" alt="" />
+    <h1><mark>Розв'язок:</mark></h1>
+
+    <script>
+      // Розв'язок з використанням рекурсії
+      function calculationsUsingRecursion(i) {
+        if (i === 0 || i === 1) return 1
+        else
+          return (
+            calculationsUsingRecursion(i - 1) +
+            calculationsUsingRecursion(i - 2) * 2
+          )
+      }
+      // const userNum = parseInt(prompt("Введіть число n:"))
+      const resultUsingRecursion = calculationsUsingRecursion(4)
+      document.write(
+        `Результат обчислення з використанням рекурсії: ${resultUsingRecursion}.<br>`
+      )
+
+      // Розв'язок без використанням рекурсії
+      function calculationsWithoutRecursion(i) {
+        let x0 = 1,
+          x1 = 1
+        let sum
+        if (i === 0 || i === 1) return 1
+        else
+          for (let index = 2; index <= i; index++) {
+            sum = x1 + 2 * x0
+            x0 = x1
+            x1 = sum
+          }
+        return sum
+      }
+
+      const resultWithoutRecursion = calculationsWithoutRecursion(4)
+      document.write(
+        `Результат обчислення з використанням рекурсії: ${resultWithoutRecursion}.`
+      )
+    </script>
+  </body>
+</html>

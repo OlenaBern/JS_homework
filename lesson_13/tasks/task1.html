@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача №1</title>
+  </head>
+  <body>
+    <h1>Задача №1</h1>
+    <img src="../img/img_1.jpg" alt="" />
+    <h1><mark>Розв'язок:</mark></h1>
+
+    <script>
+      // Розв'язок з використанням рекурсії
+      function calculationsUsingRecursion(i) {
+        if (i === 0) return 1
+        else return calculationsUsingRecursion(i - 1) + 2 * i
+      }
+
+		const resultUsingRecursion = calculationsUsingRecursion(10)
+		document.write(`Результат обчислення з використанням рекурсії: ${resultUsingRecursion}.<br>`)
+
+      // Розв'язок без використанням рекурсії
+		function calculationsWithoutRecursion(i) {
+			let x = 1
+			for (let index = 0; index <= i; index++) {
+				x += 2 *index
+			}
+			return x
+		}
+
+		const resultWithoutRecursion = calculationsWithoutRecursion(10)
+		document.write(`Результат обчислення без використання рекурсії: ${resultWithoutRecursion}.<br>`)
+
+    </script>
+  </body>
+</html>
