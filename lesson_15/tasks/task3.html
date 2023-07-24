@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача №3</title>
+  </head>
+  <body>
+    <h1>Задача №3</h1>
+    <p>Розробити клас MultChecker для перевірки таблиці множення</p>
+    <table border="2px">
+      <tr>
+        <td>Поля</td>
+        <td>
+          Число, яке перевіряємо (наприклад, перевірка частини таблиці множення
+          на 7)<br />
+          Кількість правильних відповідей<br />
+          Кількість неправильних відповідей
+        </td>
+      </tr>
+      <tr>
+        <td>Методи</td>
+        <td>
+          Генерування прикладу (метод випадковим чином визначає друге число,
+          перше число фіксоване)<br />
+          Перевірка правильності вказаної відповіді<br />
+          render - виведення інформації про тестування на екран
+        </td>
+      </tr>
+    </table>
+
+    <h1><mark>Розв'язок:</mark></h1>
+    <script>
+      class MultChecker{
+      	constructor(checkNumber){
+      		//------опис полів
+      		this.checkNumber = checkNumber
+      		this.correctAnswers = 0
+      		this.incorrectAnswers = 0
+      		}
+      		//------опис методів
+      		//-----Генерування прикладу (метод випадковим чином визначає друге число,перше число фіксоване)
+      		generateTask(){
+      			const randomMultiplier = 1 + Math.floor(Math.random()* 10) //випадковий множник від 1 до 10
+
+      			return{
+      				message: `${this.checkNumber} * ${randomMultiplier} = ?`,
+      				correctAnswer: this.checkNumber * randomMultiplier
+      			}
+      		}
+      		//-----Перевірка правильності вказаної відповіді
+      		checkAnswer(){
+      			do{
+      				const task = this.generateTask()
+      				const message = parseInt(prompt(`${task.message}`))
+      			if(task.correctAnswer===message){
+      				alert('Відповідь правильна!')
+      				this.correctAnswers ++
+      			}else{
+      				alert('Відповідь не правильна!')
+      				this.incorrectAnswers ++
+      			}
+					}while (confirm('Продовжити?'))
+      			
+      		}
+      		render(){
+      			document.write(`Число, яке перевіряємо: ${this.checkNumber}.<br>
+      			Кількість правильних відповідей: ${this.correctAnswers}.<br>
+      			Кількість неправильних відповідей: ${this.incorrectAnswers}.
+      			`)
+      		}
+      }
+
+      //-------Приклад використання
+      const multChecker = new MultChecker(5)
+      console.log(multChecker)
+      const task1 = multChecker.generateTask()
+      const userAnswer1 = 20
+      multChecker.checkAnswer()
+      multChecker.render()
+    </script>
+  </body>
+</html>

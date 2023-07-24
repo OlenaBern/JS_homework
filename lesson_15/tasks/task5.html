@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача №5</title>
+  </head>
+  <body>
+    <h1>Задача №5</h1>
+    <p>Розробити клас «Керівник танців»</p>
+    <table border="2px">
+      <tr>
+        <td>Поля</td>
+        <td>
+          Масив імен хлопців<br />
+          Масив імен дівчат
+        </td>
+      </tr>
+      <tr>
+        <td>Методи</td>
+        <td>
+          Метод випадкового вибору імені хлопця<br />
+          Метод випадкового вибору імені дівчини<br />
+          Метод виведення пари для танців<br />
+          Метод run, який ініціює через кожні 5 секунд виведення нової пари для
+          танців<br />
+        </td>
+      </tr>
+    </table>
+    <h1><mark>Розв'язок:</mark></h1>
+    <script>
+      let boysNamesArr = [
+        "Oliver",
+        "James",
+        "William",
+        "Henry",
+        "Lucas",
+        "Mateo",
+        "Sebastian",
+        "Daniel",
+        "Jack",
+        "Michael",
+      ]
+      let girlsNamesArr = [
+        "Olivia",
+        "Emma",
+        "Amelia",
+        "Amelia",
+        "Isabella",
+        "Mia",
+        "Evelyn",
+        "Luna",
+        "Camila",
+        "Eleanor",
+      ]
+
+      class DanceDirector {
+        constructor(boysNamesArr, girlsNamesArr) {
+          this.boysNamesArr = boysNamesArr
+          this.girlsNamesArr = girlsNamesArr
+        }
+        getRandomBoysName() {
+          //     метод випадкового вибору об'єкта
+          const randomIndex = Math.floor(
+            Math.random() * this.boysNamesArr.length
+          )
+          return this.boysNamesArr[randomIndex]
+        }
+        getRandomGirlsName() {
+          //     метод випадкового вибору об'єкта
+          const randomIndex = Math.floor(
+            Math.random() * this.girlsNamesArr.length
+          )
+          return this.girlsNamesArr[randomIndex]
+        }
+        showCouple() {
+          const boy = this.getRandomBoysName()
+          const girl = this.getRandomGirlsName()
+          // return document.write(`${boy} - ${girl}<br>`)
+          return alert(`${boy} - ${girl}`)
+        }
+        run() {
+          setInterval(() => {
+            this.showCouple()
+          }, 5000)
+        }
+      }
+
+      const danceDirector = new DanceDirector(boysNamesArr, girlsNamesArr)
+      danceDirector.run()
+
+      //	Дуже вдячна за перевірку :)
+    </script>
+  </body>
+</html>

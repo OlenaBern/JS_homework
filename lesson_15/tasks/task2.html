@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача №2</title>
+  </head>
+  <body>
+    <h1>Задача №2</h1>
+    <p>Створити об’єкт «Авто».</p>
+    <table border="2px">
+      <tr>
+        <td>Авто</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Поля(властивості)</td>
+        <td>
+          Марка<br />
+          Розмір бака<br />
+          Кількість наявних літрів<br />
+          Кількість місць<br />
+          Кількість пасажирів
+        </td>
+      </tr>
+      <tr>
+        <td>Методи (дії)</td>
+        <td>
+          Заправка на вказану кількість літрів<br />
+          Виведення кількості пасажирів<br />
+          Додавання пасажирів<br />
+          Висадка пасажирів<br />
+        </td>
+      </tr>
+    </table>
+
+    <h1><mark>Розв'язок:</mark></h1>
+    <script>
+      //-----Створюємо функцію-конструктор
+      function Auto(
+        brand,
+        tankSize,
+        availableLiters,
+        seatsNumber,
+        passengersNumber
+      ) {
+        //-----Поля
+        ;(this.brand = brand),
+          (this.tankSize = tankSize),
+          (this.availableLiters = availableLiters),
+          (this.seatsNumber = seatsNumber),
+          (this.passengersNumber = passengersNumber),
+          //----Методи
+          (Auto.prototype.refueling = function (litersNumber) {
+            return (this.availableLiters += litersNumber)
+          }),
+          (Auto.prototype.displayPassengersNumber = function () {
+            return document.write(
+              `Кількість пасажирів - ${this.passengersNumber}.<br>`
+            )
+          }),
+          (Auto.prototype.addPassengers = function (numberOfAddedPassengers) {
+            return (this.passengersNumber += numberOfAddedPassengers)
+          }),
+          (Auto.prototype.gettingOutPassengers = function (
+            numberOfGettingOutPassengers
+          ) {
+            return (this.passengersNumber -= numberOfGettingOutPassengers)
+          })
+      }
+      //-----Створюємо об'єкт 'Авто'
+      const auto1 = new Auto("BMW", 50, 20, 5, 2)
+      console.log(auto1)
+      auto1.refueling(20)
+      console.log(auto1)
+      auto1.displayPassengersNumber()
+      auto1.addPassengers(2)
+      console.log(auto1)
+      auto1.gettingOutPassengers(3)
+      console.log(auto1)
+    </script>
+  </body>
+</html>

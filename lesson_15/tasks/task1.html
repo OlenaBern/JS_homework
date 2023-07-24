@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача №1</title>
+  </head>
+  <body>
+    <h1>Задача №1</h1>
+    <p>
+      Створити об’єкт «Тир». У масиві зберігаються 1, якщо у цьому квадраті є
+      заєць і 0 в іншому випадку.
+    </p>
+    <table border="2px">
+      <tr>
+        <td>Тир</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Поля(властивості)</td>
+        <td>Масив, у якому зберігається поле з зайцями</td>
+      </tr>
+      <tr>
+        <td>Методи (дії)</td>
+        <td>
+          Метод пострілу (задається позиція пострілу)<br />
+          Виведення ігрового поля
+        </td>
+      </tr>
+    </table>
+
+    <h1><mark>Розв'язок:</mark></h1>
+    <script>
+      //-----Створюємо функцію фабрику
+      function createShootingRange(array) {
+        return {
+			//------поля(властивості)
+          gameField: array,
+			//------методи(дії)
+          shoot: function (position) {
+            if (this.gameField[position] === 1) {
+              document.write("Ви влучили!<br>")
+              this.gameField[position] = 0
+            } else document.write("Ви не влучили. Спробуйте ще!<br>")
+          },
+          displayField: function () {
+            document.write(`Ігрове поле: ${this.gameField}.<br>`)
+          },
+        }
+      }
+      //-----Створюємо об'єкт за допомогою функції фабрики
+      const shootingRange = createShootingRange([0, 1, 1, 0, 0, 1, 0, 0, 1, 1])
+		console.log(shootingRange)
+      shootingRange.displayField()
+      shootingRange.shoot(1)
+      shootingRange.displayField()
+      shootingRange.shoot(4)
+      shootingRange.displayField()
+    </script>
+  </body>
+</html>
